@@ -1,25 +1,44 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Balance from './components/Balance';
 
 class App extends Component {
+
+state = {
+	total: 100,
+	balances: [
+		{
+			id: 1,
+			balance: 20,
+			account: {
+				title: 'Savings',
+				percentage: 50,
+			}
+			
+		},
+		{
+			id: 2,
+			balance: 30,
+			account: {
+				title: 'Personal',
+				percentage: 20
+			}
+		},
+		{
+			id: 3,
+			balance: 40,
+			account: {
+				title: 'Business',
+				percentage: 30
+			}
+		},
+	]
+}
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      	<h1>Total Balance: ${this.state.total}</h1>
+      	<Balance balances={this.state.balances} total={this.state.total} />
       </div>
     );
   }
